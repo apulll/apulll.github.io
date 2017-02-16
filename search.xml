@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[无尽滚动的复杂度]]></title>
+      <url>%2F2017%2F02%2F16%2F%E6%97%A0%E5%B0%BD%E6%BB%9A%E5%8A%A8%E7%9A%84%E5%A4%8D%E6%9D%82%E5%BA%A6%2F</url>
+      <content type="text"><![CDATA[摘要: 重用你的DOM元素以及删除那些远离可视范围的元素。为延迟显示的元素使用占位符。这里是一个无尽滚动的演示和代码。 无尽滚动在互联网上到处都有应用。Google Music的艺术家列表是一个，Facebook的时间线是一个，Tweeter的话题列表也是一个。当你向下滚动，新的内容就神奇的“无中生有”了。这是一个得到广泛赞扬的、非常好的用户体验。 在这个无尽滚动背后的技术挑战其实比它看上去要难。当你想做正确的事时，你遇到的问题是巨大的。开始时是一些比较简单的事情，比如在页面尾部的链接是无法点击的，因为内容不断的把它们“挤”走。但是问题逐渐开始变得越来越难：当用户将手机从竖屏改为横屏时你该如何处理 resize 事件？或者当列表过长时你如何避免手机的卡顿？ [译] 无尽滚动的复杂度 – 来自 Google 大神的拆解 原文链接]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[git配置多个SSH-Key]]></title>
       <url>%2F2017%2F02%2F08%2Fgit%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AASSH-Key%2F</url>
       <content type="text"><![CDATA[具体操作步骤1、生成一个公司用的SSH-Key1$ ssh-keygen -t rsa -C "youremail@yourcompany.com" -f ~/.ssh/id-rsa 在~/.ssh/目录会生成id-rsa和id-rsa.pub私钥和公钥。 我们将id-rsa.pub中的内容粘帖到公司gitlab服务器的SSH-key的配置中 2、生成一个github用的SSH-Key1$ ssh-keygen -t rsa -C "youremail@your.com" -f ~/.ssh/github-rsa 在~/.ssh/目录会生成github-rsa和github-rsa.pub私钥和公钥。 我们将github-rsa.pub中的内容粘帖到github服务器的SSH-key的配置中 3、添加私钥1$ ssh-add ~/.ssh/id_rsa $ ssh-add ~/.ssh/github_rsa 如果执行ssh-add时提示”Could not open a connection to your authentication agent”，可以现执行命令：1$ ssh-agent bash 然后再运行ssh-add命令1234# 可以通过 ssh-add -l 来确私钥列表$ ssh-add -l# 可以通过 ssh-add -D 来清空私钥列表$ ssh-add -D 4、修改配置文件在 ~/.ssh 目录下新建一个config文件1touch config 添加内容12345678910# gitlabHost gitlab.com HostName gitlab.com PreferredAuthentications publickey IdentityFile ~/.ssh/id_rsa# githubHost github.com HostName github.com PreferredAuthentications publickey IdentityFile ~/.ssh/github_rsa 6、测试1$ ssh -T git@github.com 输出Hi stefzhlg! You’ve successfully authenticated, but GitHub does not provide shell access. 就表示成功的连上github了.也可以试试链接公司的gitlab More info: Deployment]]></content>

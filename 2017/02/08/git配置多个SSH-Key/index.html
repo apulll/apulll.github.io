@@ -87,20 +87,20 @@
 
 
 
-<meta name="description" content="具体操作步骤1、生成一个公司用的SSH-Key1$ ssh-keygen -t rsa -C &quot;youremail@yourcompany.com&quot; -f ~/.ssh/id-rsa
+<meta name="description" content="具体操作步骤1、生成一个公司用的SSH-Key1$ ssh-keygen -t rsa -C &quot;youremail@yourcompany.com&quot; -f ~/.ssh/id_rsa
 在~/.ssh/目录会生成id-rsa和id-rsa.pub私钥和公钥。 我们将id-rsa.pub中的内容粘帖到公司gitlab服务器的SSH-key的配置中
 2、生成一个github用的SSH-Key1$ ssh">
 <meta property="og:type" content="article">
 <meta property="og:title" content="git配置多个SSH-Key">
 <meta property="og:url" content="http://yoursite.com/2017/02/08/git配置多个SSH-Key/index.html">
 <meta property="og:site_name" content="曾经年少">
-<meta property="og:description" content="具体操作步骤1、生成一个公司用的SSH-Key1$ ssh-keygen -t rsa -C &quot;youremail@yourcompany.com&quot; -f ~/.ssh/id-rsa
+<meta property="og:description" content="具体操作步骤1、生成一个公司用的SSH-Key1$ ssh-keygen -t rsa -C &quot;youremail@yourcompany.com&quot; -f ~/.ssh/id_rsa
 在~/.ssh/目录会生成id-rsa和id-rsa.pub私钥和公钥。 我们将id-rsa.pub中的内容粘帖到公司gitlab服务器的SSH-key的配置中
 2、生成一个github用的SSH-Key1$ ssh">
-<meta property="og:updated_time" content="2017-02-08T10:17:14.162Z">
+<meta property="og:updated_time" content="2017-03-01T03:47:54.498Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git配置多个SSH-Key">
-<meta name="twitter:description" content="具体操作步骤1、生成一个公司用的SSH-Key1$ ssh-keygen -t rsa -C &quot;youremail@yourcompany.com&quot; -f ~/.ssh/id-rsa
+<meta name="twitter:description" content="具体操作步骤1、生成一个公司用的SSH-Key1$ ssh-keygen -t rsa -C &quot;youremail@yourcompany.com&quot; -f ~/.ssh/id_rsa
 在~/.ssh/目录会生成id-rsa和id-rsa.pub私钥和公钥。 我们将id-rsa.pub中的内容粘帖到公司gitlab服务器的SSH-key的配置中
 2、生成一个github用的SSH-Key1$ ssh">
 
@@ -393,9 +393,9 @@
       
 
       
-        <h2 id="具体操作步骤"><a href="#具体操作步骤" class="headerlink" title="具体操作步骤"></a>具体操作步骤</h2><h4 id="1、生成一个公司用的SSH-Key"><a href="#1、生成一个公司用的SSH-Key" class="headerlink" title="1、生成一个公司用的SSH-Key"></a>1、生成一个公司用的SSH-Key</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh-keygen -t rsa -C <span class="string">"youremail@yourcompany.com"</span> <span class="_">-f</span> ~/.ssh/id-rsa</div></pre></td></tr></table></figure>
+        <h2 id="具体操作步骤"><a href="#具体操作步骤" class="headerlink" title="具体操作步骤"></a>具体操作步骤</h2><h4 id="1、生成一个公司用的SSH-Key"><a href="#1、生成一个公司用的SSH-Key" class="headerlink" title="1、生成一个公司用的SSH-Key"></a>1、生成一个公司用的SSH-Key</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh-keygen -t rsa -C <span class="string">"youremail@yourcompany.com"</span> <span class="_">-f</span> ~/.ssh/id_rsa</div></pre></td></tr></table></figure>
 <p>在~/.ssh/目录会生成id-rsa和id-rsa.pub私钥和公钥。 我们将id-rsa.pub中的内容粘帖到公司gitlab服务器的SSH-key的配置中</p>
-<h4 id="2、生成一个github用的SSH-Key"><a href="#2、生成一个github用的SSH-Key" class="headerlink" title="2、生成一个github用的SSH-Key"></a>2、生成一个github用的SSH-Key</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh-keygen -t rsa -C <span class="string">"youremail@your.com"</span> <span class="_">-f</span> ~/.ssh/github-rsa</div></pre></td></tr></table></figure>
+<h4 id="2、生成一个github用的SSH-Key"><a href="#2、生成一个github用的SSH-Key" class="headerlink" title="2、生成一个github用的SSH-Key"></a>2、生成一个github用的SSH-Key</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh-keygen -t rsa -C <span class="string">"youremail@your.com"</span> <span class="_">-f</span> ~/.ssh/github_rsa</div></pre></td></tr></table></figure>
 <p>在~/.ssh/目录会生成github-rsa和github-rsa.pub私钥和公钥。 我们将github-rsa.pub中的内容粘帖到github服务器的SSH-key的配置中<br><a id="more"></a></p>
 <h4 id="3、添加私钥"><a href="#3、添加私钥" class="headerlink" title="3、添加私钥"></a>3、添加私钥</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh-add ~/.ssh/id_rsa $ ssh-add ~/.ssh/github_rsa</div></pre></td></tr></table></figure>
 <p>如果执行ssh-add时提示”Could not open a connection to your authentication agent”，可以现执行命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh-agent bash</div></pre></td></tr></table></figure></p>
